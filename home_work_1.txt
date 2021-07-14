@@ -1,1 +1,22 @@
-1.line
+#!/bin/bash
+
+mkdir QA20
+cd QA20
+mkdir A B C
+cd A
+touch a.txt b.txt c.txt d.json e.json
+mkdir Alex Leo Max
+ls -la
+vim a.txt
+i Qa Course Group 20
+ESC :wq
+cd ..
+mcdir Java      
+a.txt b.txt Java/
+cp d.json e.json Java/
+find a.txt
+ls | a.txt
+head a.txt
+tail a.txt
+less a.txt
+date
