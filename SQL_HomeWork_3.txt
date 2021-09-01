@@ -27,4 +27,11 @@ __________
 
 Ответ:
 SELECT DISTINCT maker FROM product WHERE type = 'pc' and maker NOT IN (SELECT maker FROM product WHERE type = 'laptop');
+__________
+
+Задание:9
+Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker.
+
+Ответ:
+SELECT DISTINCT maker FROM Product JOIN pc ON product.model=pc.model WHERE speed>=450;
 
