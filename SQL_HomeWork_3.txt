@@ -6,3 +6,25 @@ SELECT DISTINCT p.maker, l.speed
 FROM laptop l
 JOIN product p ON p.model = l.model
 WHERE l.hd >= 10;
+__________
+
+Задание:7
+Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
+
+Ответ:
+SELECT DISTINCT product.model, pc.price
+FROM Product JOIN pc ON product.model = pc.model WHERE maker = 'B'
+UNION
+SELECT DISTINCT product.model, laptop.price
+FROM product JOIN laptop ON product.model=laptop.model WHERE maker='B'
+UNION
+SELECT DISTINCT product.model, printer.price
+FROM product JOIN printer ON product.model=printer.model WHERE maker='B';
+__________
+
+Задание:8
+Найдите производителя, выпускающего ПК, но не ПК-блокноты.
+
+Ответ:
+SELECT DISTINCT maker FROM product WHERE type = 'pc' and maker NOT IN (SELECT maker FROM product WHERE type = 'laptop');
+
