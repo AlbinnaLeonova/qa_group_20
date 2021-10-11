@@ -1,0 +1,79 @@
+Задание:1
+Найдите номер модели, скорость и размер жесткого диска для всех ПК стоимостью менее 500 дол. Вывести: model, speed и hd
+
+Ответ:
+SELECT model, speed, hd
+FROM pc
+WHERE price < 500;
+
+Задание:2
+Найдите производителей принтеров. Вывести: maker
+
+Ответ:
+SELECT maker
+FROM Product
+WHERE type = 'Printer'
+GROUP BY maker;
+
+Задание:3
+Найдите номер модели, объем памяти и размеры экранов ПК-блокнотов, цена которых превышает 1000 дол.
+
+Ответ:
+SELECT model, ram, screen
+FROM Laptop
+WHERE price > 1000;
+
+Задание:4
+Найдите все записи таблицы Printer для цветных принтеров.
+
+Ответ:
+SELECT * FROM Printer
+WHERE color = 'y';
+
+__________
+
+Задание:5
+Найдите номер модели, скорость и размер жесткого диска ПК, имеющих 12x или 24x CD и цену менее 600 дол.
+
+Ответ:
+SELECT PC.model, PC.speed, PC.hd
+From PC
+WHERE (PC.cd = '12x' OR PC.cd = '24x') AND price < 600;
+
+Задание:6
+Для каждого производителя, выпускающего ПК-блокноты c объёмом жесткого диска не менее 10 Гбайт, найти скорости таких ПК-блокнотов. Вывод: производитель, скорость.
+
+Ответ:
+SELECT DISTINCT p.maker, l.speed
+FROM laptop l
+JOIN product p ON p.model = l.model
+WHERE l.hd >= 10;
+__________
+
+Задание:7
+Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
+
+Ответ:
+SELECT DISTINCT product.model, pc.price
+FROM Product JOIN pc ON product.model = pc.model WHERE maker = 'B'
+UNION
+SELECT DISTINCT product.model, laptop.price
+FROM product JOIN laptop ON product.model=laptop.model WHERE maker='B'
+UNION
+SELECT DISTINCT product.model, printer.price
+FROM product JOIN printer ON product.model=printer.model WHERE maker='B';
+__________
+
+Задание:8
+Найдите производителя, выпускающего ПК, но не ПК-блокноты.
+
+Ответ:
+SELECT DISTINCT maker FROM product WHERE type = 'pc' and maker NOT IN (SELECT maker FROM product WHERE type = 'laptop');
+__________
+
+Задание:9
+Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker.
+
+Ответ:
+SELECT DISTINCT maker FROM Product JOIN pc ON product.model=pc.model WHERE speed>=450;
+
