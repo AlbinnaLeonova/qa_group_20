@@ -77,3 +77,4 @@ __________
 Ответ:
 SELECT DISTINCT maker FROM Product JOIN pc ON product.model=pc.model WHERE speed>=450;
 
+Задание:10
