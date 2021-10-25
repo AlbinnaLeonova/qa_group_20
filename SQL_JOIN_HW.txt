@@ -48,3 +48,13 @@ select salary.employee_id, salary.monthly_salary from salary join roles on roles
  
  17. Вывести имена и зарплаты Junior Python разработчиков
  select roles.role_name, employees_salary.monthly_salary from roles join employees_salary on roles.role_name like '%Junior Python%';
+
+
+18. Вывести имена и зарплаты Middle JS разработчиков
+  select salary.employee_id, salary.monthly_salary, roles.role_name from roles join salary on roles.role_name like '%Middle JavaScript developer%';
+
+19. Вывести имена и зарплаты Senior Java разработчиков
+ select salary.employee_id, salary.monthly_salary, roles.role_name from salary join roles on roles.role_name like '%Senior Java developer%'; 
+  
+20. Вывести зарплаты Junior QA инженеров
+select salary.monthly_salary, roles.role_name from salary join roles on roles.role_name like '%Junior%' and roles.role_name like '%QA%'; 
